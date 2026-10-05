@@ -10,9 +10,12 @@
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:Arial,Helvetica,sans-serif;background:#f6f7fb;color:#202124;line-height:1.5}
     a{text-decoration:none;color:inherit}
-    header{background:#111827;color:#fff;position:sticky;top:0;z-index:10}
+    header{background:#fff;color:#111827;position:sticky;top:0;z-index:10;border-bottom:1px solid #e5e7eb;box-shadow:0 2px 10px rgba(17,24,39,.04)}
     .nav{max-width:1100px;margin:auto;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .logo{font-size:22px;font-weight:800}.logo span{color:#f59e0b}
+    .logo{display:inline-flex;align-items:center;justify-content:center;min-height:44px}
+    .logo img{display:block;max-height:92px;width:auto;background:#fff;padding:4px 6px;border-radius:12px}
+    .logo-fallback{display:none;align-items:center;gap:4px;font-size:46px;font-weight:800;letter-spacing:-.04em;color:#111827}
+    .logo-fallback .logo-brand{color:#f59e0b}
     nav{display:flex;gap:18px;font-size:14px}
     nav a:hover{color:#f59e0b}
     .hero{background:linear-gradient(135deg,#111827,#374151);color:#fff}
@@ -74,7 +77,10 @@
 <body>
 <header>
 <div class="nav">
-<a class="logo" href="#">Casa<span>Fácil</span></a>
+<a class="logo" href="#" aria-label="Casa Fácil logo">
+<img src="logotipo.png" alt="Casa Fácil" onerror="this.style.display='none'; this.parentElement.querySelector('.logo-fallback').style.display='inline-flex';"/>
+<span class="logo-fallback"><span>Casa</span><span class="logo-brand">Fácil</span></span>
+</a>
 <nav>
 <a href="#produtos">Produtos</a>
 <a href="#vantagens">Vantagens</a>
